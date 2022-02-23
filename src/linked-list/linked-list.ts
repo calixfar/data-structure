@@ -69,10 +69,60 @@ export class LinkedList<T> {
     }
     
     let currentNode = this.list.head
-    
+
     do {
       console.log(currentNode.value)
       currentNode = currentNode.next as LinkedListNode<T>
     } while (currentNode)
+  }
+
+  indexOf (val: T) {
+    if (!this.list) {
+      console.log('The list is empty')
+      
+      return
+    }
+
+    let currentNode = this.list.head
+    let match = -1
+    let index = 0
+
+    do {
+      if (val === currentNode.value) {
+        match = index
+
+        break
+      }
+
+      index++
+      currentNode = currentNode.next as LinkedListNode<T>
+    } while (currentNode)
+
+    return match
+  }
+
+  findAt (position: number) {
+    if (!this.list) {
+      console.log('The list is empty')
+      
+      return
+    }
+
+    let currentNode = this.list.head
+    let match: null | T = null
+    let index = 0
+
+    do {
+      if (index === position) {
+        match = currentNode.value
+
+        break
+      }
+
+      index++
+      currentNode = currentNode.next as LinkedListNode<T>
+    } while (currentNode)
+
+    return match
   }
 }
