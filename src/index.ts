@@ -2,11 +2,15 @@ import { LinkedList } from './linked-list/linked-list'
 
 const linkedList = new LinkedList<number>()
 
-linkedList.addFront(1)
-linkedList.addFront(2)
-linkedList.addFront(3)
-linkedList.addFront(4)
-linkedList.addFront(5)
+linkedList.addBack(1)
+linkedList.addBack(2)
+// linkedList.addBack(3)
+// linkedList.addBack(4)
+// linkedList.addBack(5)
+// linkedList.addBack(2)
 linkedList.print()
-console.log('indexOf position', linkedList.indexOf(3))
-console.log('value by position', linkedList.findAt(4))
+// console.log('indexOf position', linkedList.indexOf(3))
+// console.log('value by position', linkedList.findAt(4))
+
+linkedList.deleteByValue(2)
+linkedList.print()

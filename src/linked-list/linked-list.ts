@@ -70,10 +70,14 @@ export class LinkedList<T> {
     
     let currentNode = this.list.head
 
+    console.log('|====== START LIST ======|')
+
     do {
       console.log(currentNode.value)
       currentNode = currentNode.next as LinkedListNode<T>
     } while (currentNode)
+
+    console.log('|====== END LIST ======|')
   }
 
   indexOf (val: T) {
@@ -124,5 +128,52 @@ export class LinkedList<T> {
     } while (currentNode)
 
     return match
+  }
+
+  deleteByValue (value: T) {
+    if (!this.list) {
+      console.log('The list is empty')
+      
+      return
+    }
+
+    let currentNode = this.list.head
+
+    do {
+      if (value === currentNode.value) {
+        const prevNode = currentNode.prev
+        const nextNode = currentNode.next
+
+        if (currentNode === this.list!.head) {
+          if (nextNode) {
+            this.list!.head = nextNode
+          } else {
+            this.list = undefined
+
+            return
+          }
+        }
+
+        if (currentNode === this.list!.tail) {
+          if (prevNode) {
+            this.list!.tail = prevNode
+          } else {
+            this.list = undefined
+
+            return
+          }
+        }
+
+        if (prevNode) {
+          prevNode.next = nextNode
+        }
+
+        if (nextNode) {
+          nextNode.prev = prevNode
+        }
+      }
+
+      currentNode = currentNode.next as LinkedListNode<T>
+    } while (currentNode)
   }
 }
