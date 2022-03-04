@@ -176,4 +176,25 @@ export class LinkedList<T> {
       currentNode = currentNode.next as LinkedListNode<T>
     } while (currentNode)
   }
+
+  deleteBack () {
+    if (!this.list) {
+      console.log('This list is empty, please fill it with values before using the delete method')
+
+      return
+    }
+
+    if (!this.list.tail.prev) {
+      this.list = undefined
+      return
+    }
+
+    this.list.tail = this.list.tail.prev
+    this.list.tail.next = null
+    this.list.size -= 1
+
+    if (this.list.tail.prev) {
+      this.list.tail.prev.next = this.list.tail
+    }
+  }
 }
