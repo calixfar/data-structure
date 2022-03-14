@@ -188,13 +188,27 @@ export class LinkedList<T> {
       this.list = undefined
       return
     }
-
+    
     this.list.tail = this.list.tail.prev
     this.list.tail.next = null
     this.list.size -= 1
+  }
 
-    if (this.list.tail.prev) {
-      this.list.tail.prev.next = this.list.tail
+  deleteFront () {
+    if (!this.list) {
+      console.log('This list is empty, please fill it with values before using the delete method')
+
+      return
     }
+
+    if (!this.list.head.next) {
+      this.list = undefined
+
+      return
+    }
+
+    this.list.head = this.list.head.next
+    this.list.head.prev = null
+    this.list.size -= 1
   }
 }

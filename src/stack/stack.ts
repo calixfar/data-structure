@@ -5,7 +5,6 @@ export class Stack<T> {
   private constructor (private readonly list: LinkedList<T>) {}
 
   static init <T>(): Stack<T> {
-
     return new Stack<T>(new LinkedList<T>())
   }
 
