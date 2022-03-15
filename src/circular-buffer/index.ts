@@ -1,0 +1,20 @@
+import { CircularBuffer } from './circular-buffer'
+
+const circularBuffer = CircularBuffer.init<number>(4)
+
+circularBuffer.enqueue(10)
+circularBuffer.enqueue(11)
+circularBuffer.enqueue(12)
+circularBuffer.enqueue(13)
+circularBuffer.print()
+console.log('2 LAST')
+circularBuffer.enqueue(14)
+circularBuffer.enqueue(15)
+// circularBuffer.enqueue(16)
+// circularBuffer.enqueue(17)
+circularBuffer.print()
+// console.log('3 LAST')
+// circularBuffer.enqueue(18)
+// circularBuffer.enqueue(19)
+// circularBuffer.enqueue(20)
+// circularBuffer.print()
